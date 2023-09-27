@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
+    "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd phonebookFrontEnd && npm run build && cd .. &&@powershell Copy-Item -Recurse phonebookFrontEnd/dist dist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Ravindu Bandara",
