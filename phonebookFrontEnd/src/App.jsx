@@ -41,7 +41,9 @@ const App = () => {
       );
 
       if (changeNum) {
-        const name = persons.find((n) => n.name === newName);
+        const name = persons.find(
+          (n) => n.name.toLowerCase() === newName.toLowerCase()
+        );
         const changedName = { ...name, number: newNumber };
 
         personService
@@ -104,7 +106,6 @@ const App = () => {
       personService
         .deletePerson(id)
         .then(() => {
-          console.log(`Deleted person with id ${id}`);
           setPersons(persons.filter((n) => n.id !== id));
         })
         .catch((err) => {
